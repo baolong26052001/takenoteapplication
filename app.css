@@ -1,0 +1,92 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial;
+    min-height: 100%;
+
+}
+html{
+    height: 100%;
+}
+nav {
+    height:auto;
+    background-color: #adaa99;
+    position: relative;
+    margin-bottom: 0vh    ;
+    margin: auto;
+ 
+}
+.container{
+    width: fit-content!important;
+    text-align: center;
+}
+.webname{
+    color: #ffda00;
+    font-size: 50px;
+    padding-top: 3vh;
+}
+
+
+nav img{
+    height: 15vh;
+    padding:1vh;
+}
+.main-body{
+    padding-top: 5vh;
+    background-color: rgb(96, 86, 86);
+    height: 100vh;
+}
+
+.new-note{
+    width: 300px;
+    margin: 0 auto;
+}
+
+.new-note input,
+.new-note textarea,
+.new-note button{
+    font-family: Arial;
+    padding: 5px 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.note {
+    background-color: #ffda00;
+    color: black;
+    width: 300px;
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+    min-height: 100px;
+}
+.note .title{
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.note .title a {
+    color: black;
+}
+.note .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    border: none;
+}
+.note small {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    margin-top: 10px;
+    display: block;
+    text-align: right;
+    font-style: italic;
+}
