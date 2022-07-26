@@ -29,11 +29,11 @@ if (isset($_GET['id'])) {
 </head>
 
 <body>
-<nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+<nav class="navbar navbar-dark bg-light navbar-expand-sm">
 
         <div class="row" style="width:100%; height:100%">
             <div class="col-sm-6-md-3" style="width:0%; height:100%">
-                <a href=""><img src="logo.jpg" alt=""> </a>
+                <a href=""><img src="logo.png" alt=""> </a>
             </div>
             <div class="col-sm-6-md-9" style="width:100%; height:100%; text-align:center" >
                 <H1 class="webname"> Note taking</H1>
