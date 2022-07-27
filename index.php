@@ -7,7 +7,8 @@ $notes = $connection->getNotes();
 $currentNote = [
     'id' => '',
     'title' => '',
-    'description' => ''
+    'description' => '',
+    'image' => ''
 ];
 if (isset($_GET['id'])) {
     $currentNote = $connection->getNoteById($_GET['id']);
@@ -36,26 +37,36 @@ if (isset($_GET['id'])) {
                 <a href=""><img src="logo.png" alt=""> </a>
             </div>
             <div class="col-sm-6-md-9" style="width:100%; height:100%; text-align:center" >
-                <H1 class="webname"> Note taking</H1>
+                <h1 class="webname">Note taking</h1>
             </div>
     </div>        
 </nav>
 
 
 <div class="main-body">
-    <form class="new-note" action="create.php" method="post">
+    <form class="new-note" action="create.php" method="POST" >
         <input type="hidden" name="id" value="<?php echo $currentNote['id'] ?>">
         <input type="text" name="title" placeholder="Note title" autocomplete="off"
                value="<?php echo $currentNote['title'] ?>">
         <textarea name="description" cols="30" rows="4"
                   placeholder="Note Description"><?php echo $currentNote['description'] ?></textarea>
-        <button>
+                   
+                   
+                   
+                
+
+
+        
             <?php if ($currentNote['id']): ?>
-                Update
+                <button>Update</button>
             <?php else: ?>
-                New note
+                 
+                <input enctype="multipart/form-data" type="file" name="image" value="<?php echo $currentNote['image'] ?>">
+                   
+                <button>New note</button>
+            
             <?php endif ?>
-        </button>
+      
     </form>
     <div class="notes">
         <?php foreach ($notes as $note): ?>
@@ -67,6 +78,11 @@ if (isset($_GET['id'])) {
                 </div>
                 <div class="description">
                     <?php echo $note['description'] ?>
+                </div>
+                <div class="image">
+                    
+                    <img src="image/<?php echo $note['image'] ?>" style="width:150px; height:100px;" alt="">
+                   
                 </div>
                 <small><?php echo date('d/m/Y H:i', strtotime($note['create_date'])) ?></small>
                 <form action="delete.php" method="post">

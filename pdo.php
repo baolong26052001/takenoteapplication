@@ -1,5 +1,5 @@
 <?php
-
+include 'fileManager.php';
 class Connection
 {
     public $pdo = null;
@@ -24,20 +24,26 @@ class Connection
 
     public function addNote($note)
     {
-        $statement = $this->pdo->prepare("INSERT INTO notes (title, description, create_date)
-                                    VALUES (:title, :description, :date)");
+       
+        $statement = $this->pdo->prepare("INSERT INTO notes (title, description, image, create_date)
+                                    VALUES (:title, :description, :image, :date)");
         $statement->bindValue('title', $note['title']);
         $statement->bindValue('description', $note['description']);
+        $statement->bindValue('image', $note['image']);
         $statement->bindValue('date', date('Y-m-d H:i:s'));
         return $statement->execute();
+
     }
 
     public function updateNote($id, $note)
     {
-        $statement = $this->pdo->prepare("UPDATE notes SET title = :title, description = :description WHERE id = :id");
+        $statement = $this->pdo->prepare("UPDATE notes 
+        SET title = :title, description = :description
+        WHERE id = :id");
         $statement->bindValue('id', $id);
         $statement->bindValue('title', $note['title']);
         $statement->bindValue('description', $note['description']);
+        
         return $statement->execute();
     }
 
