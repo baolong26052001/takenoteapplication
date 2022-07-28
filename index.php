@@ -44,7 +44,7 @@ if (isset($_GET['id'])) {
 
 
 <div class="main-body">
-    <form class="new-note" action="create.php" method="POST" >
+    <form class="new-note" action="create.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $currentNote['id'] ?>">
         <input type="text" name="title" placeholder="Note title" autocomplete="off"
                value="<?php echo $currentNote['title'] ?>">
@@ -58,10 +58,12 @@ if (isset($_GET['id'])) {
 
         
             <?php if ($currentNote['id']): ?>
+                <input type="file" name="image" value="<?php echo $currentNote['image'] ?>">
+                 
                 <button>Update</button>
             <?php else: ?>
                  
-                <input enctype="multipart/form-data" type="file" name="image" value="<?php echo $currentNote['image'] ?>">
+                <input type="file" name="image" value="<?php echo $currentNote['image'] ?>">
                    
                 <button>New note</button>
             

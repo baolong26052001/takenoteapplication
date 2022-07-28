@@ -38,12 +38,12 @@ class Connection
     public function updateNote($id, $note)
     {
         $statement = $this->pdo->prepare("UPDATE notes 
-        SET title = :title, description = :description
+        SET title = :title, description = :description, image = :image
         WHERE id = :id");
         $statement->bindValue('id', $id);
         $statement->bindValue('title', $note['title']);
         $statement->bindValue('description', $note['description']);
-        
+        $statement->bindValue('image', $note['image']);
         return $statement->execute();
     }
 
