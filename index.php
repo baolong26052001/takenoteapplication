@@ -84,7 +84,7 @@ if (isset($_GET['id'])) {
                 <div class="image">
                     
                     <img src="image/<?php echo $note['image'] ?>" style="width:150px; height:100px;" alt="">
-                   
+                    <?php $currentNote['image']=$note['image']; ?>
                 </div>
                 <small><?php echo date('d/m/Y H:i', strtotime($note['create_date'])) ?></small>
                 <form action="delete.php" method="post">
